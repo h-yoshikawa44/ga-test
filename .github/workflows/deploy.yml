@@ -69,7 +69,7 @@ jobs:
         run: |
           CFID=$(aws cloudfront list-distributions --query "DistributionList.Items[].{Id:Id,Origin:Origins.Items[0].DomainName}[?contains(Origin,'${{ secrets.AWS_S3_BUCKET_NAME }}.s3')] | [0].Id")
           echo "aws cloudfront create-invalidation ${CFID}"
-          aws cloudfront create-invalidation --distribution-id '${CFID}' --paths "/*"
+          aws cloudfront create-invalidation --distribution-id \"${CFID}\" --paths "/*"
 
       - name: Slack Notification
         uses: 8398a7/action-slack@v3
