@@ -4,7 +4,7 @@ on:
     workflows:
       - "Develop Check"
     branches:
-      - main
+      - develop
     types:
       - completed
 
